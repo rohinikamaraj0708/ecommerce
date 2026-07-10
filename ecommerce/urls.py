@@ -1,10 +1,16 @@
+from django.http import HttpResponse
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-
 from django.urls import path, include
 
+
+def home(request):
+    return HttpResponse("Ecommerce Backend API is running 🚀")
+
+
 urlpatterns = [
+    path("", home),   # 👈 இந்த line add பண்ண வேண்டும்
     path("admin/", admin.site.urls),
     path("api/", include("store.urls")),
 ]
